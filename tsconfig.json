@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "target": "ES2020",
+    "module": "CommonJS",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "strict": false,
+    "sourceMap": false,
+    "resolveJsonModule": true
+  },
+  "include": ["src", "examples/passThrough.ts"],
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.temp.ts"]
+}

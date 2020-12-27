@@ -1,0 +1,5 @@
+console.log("^")
+const a = Array.from({ length: 100000000 }, (_, i) => i + 1)
+const result = a.reduce((a, b) => a + b)
+console.log("$")
+console.log("Result:", result)
