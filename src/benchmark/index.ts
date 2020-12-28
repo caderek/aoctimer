@@ -4,7 +4,7 @@ const run = () => {
   aoc202002()
 }
 
-const calibrate = () => {
+const benchmark = () => {
   const start = process.hrtime.bigint()
   for (let i = 0; i < 1000; i++) {
     run()
@@ -12,4 +12,4 @@ const calibrate = () => {
   return Number(process.hrtime.bigint() - start)
 }
 
-export default calibrate
+export default benchmark

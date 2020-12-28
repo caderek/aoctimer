@@ -1,19 +1,10 @@
 const fs = require("fs")
 const path = require("path")
-const { platform, homedir } = require("os")
-import { name, version } from "../package.json"
+import { name, version } from "../../package.json"
 
-const folderName = name
-const fileName = `${name}_${version.replace(/\./g, "_")}.json`
+const fileName = `${name}.json`
 
-const configBasePath = {
-  linux: ".config",
-  darwin: "Library/Preferences",
-  win32: "AppData/Roaming",
-}
-
-const home = homedir()
-const configDir = path.join(home, configBasePath[platform()], folderName)
+const configDir = process.cwd()
 const configFile = path.join(configDir, fileName)
 
 const check = () => {
@@ -37,3 +28,4 @@ const save = (data: { [key: string]: string | number }) => {
 }
 
 export { check, save, load }
+export default load()
