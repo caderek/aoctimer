@@ -5,7 +5,7 @@
 AoC timer measures your [Advent of Code](https://adventofcode.com/) solutions time in relative units,
 so you can compare your code performance with others, independent of your machine specs.
 
-The timer is not meant to be overly precise (has ~1ms precision). It is also not perfect replicating the same results on different machines, but the results are precise enough to make it a fun tool.
+The timer is not meant to be overly precise (has ~1ms precision). It is also not perfect in replicating the same results on different machines, but the results are precise enough to make it a fun tool.
 
 It also provides a score and shows you the level of your optimizations, making performance tweaks more gratifying.
 
