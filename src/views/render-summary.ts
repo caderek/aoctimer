@@ -70,7 +70,7 @@ const renderSummary = (year: string, days: Day[]) => {
     |                                                    |
     ${summary}
     |                                                    |
-    +--------------------------- aoctimer.netlify.app ---+
+    +----------------------------------- git.io/JL9Qu ---+
 `
 }
 

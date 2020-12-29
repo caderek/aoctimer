@@ -23,7 +23,7 @@ const renderDay = (day: string | null, data: any) => {
     | Time: ${statsView1} |
     | Relative: ${statsView2} |
     |                                                    |
-    +--------------------------- aoctimer.netlify.app ---+
+    +----------------------------------- git.io/JL9Qu ---+
 `
 }
 
