@@ -2,7 +2,7 @@
 
 ## What is it?
 
-AoC timer measures your Advent of Code solutions time in relative units,
+AoC timer measures your [Advent of Code](https://adventofcode.com/) solutions time in relative units,
 so you can compare your code performance with others, independent of your machine specs.
 
 The timer is not meant to be overly precise (has ~1ms precision). It is also not perfect replicating the same results on different machines, but the results are precise enough to make it a fun tool.
