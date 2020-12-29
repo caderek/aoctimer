@@ -2,7 +2,6 @@ import * as readline from "readline"
 import benchmark from "../benchmark"
 import { save } from "../config"
 import calibrate from "./calibrate"
-import { version } from "../../package.json"
 
 const ask = (rl, question) =>
   new Promise((resolve) => rl.question(question, resolve))
@@ -26,7 +25,7 @@ const init = async () => {
   rl.close()
 
   save({
-    version,
+    version: "1.0.0",
     year: (year ? year : yearData[0]) as string,
     language: (language || "unknown") as string,
     days: [],

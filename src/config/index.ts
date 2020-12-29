@@ -1,6 +1,5 @@
 const fs = require("fs")
 const path = require("path")
-import { name } from "../../package.json"
 
 type Day = {
   day: number
@@ -18,7 +17,7 @@ type Data = {
   days?: Day[]
 }
 
-const fileName = `${name}.json`
+const fileName = `aoctimer.json`
 
 const configDir = process.cwd()
 const configFile = path.join(configDir, fileName)
