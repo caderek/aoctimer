@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
+  "bin": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run transpile; npm run build:win64; yarn run build:macos; yarn run build:linux64",

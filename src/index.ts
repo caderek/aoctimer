@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import help from "./actions/help"
 import init from "./actions/init"
 import calibrate from "./actions/calibrate"
