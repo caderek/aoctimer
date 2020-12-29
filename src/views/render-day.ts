@@ -1,13 +1,11 @@
-import getYearAndDay from "../helpers/get-year-and-day"
 import stats from "../stats"
 import config from "../config"
 import renderSystem from "./render-system"
 
-const renderDay = (rawTime: bigint) => {
-  const { time, exponent, delta, rel } = stats.day(rawTime, config)
+const renderDay = (day: string | null, data: any) => {
+  const { time, exponent, delta, rel } = data
   const points = 2 ** exponent
   const relative = `${rel}%`
-  const { year, day } = getYearAndDay(config)
 
   const timeView = `${time}ms${delta !== null ? ` (next: -${delta}ms)` : ""}`
 
@@ -19,8 +17,8 @@ const renderDay = (rawTime: bigint) => {
     .repeat(exponent)
     .padEnd(10, "☆")}`.padEnd(40, " ")
 
-  const summary = `
-    +--- AoC ${year} Day ${day} - AOC TIMER --------------------+
+  return `
+    +--- AoC ${config.year} Day ${day} - AOC TIMER --------------------+
     |                                                    |
     ${renderSystem()}
     | Time: ${statsView1} |
@@ -28,8 +26,6 @@ const renderDay = (rawTime: bigint) => {
     |                                                    |
     +--------------------------- aoctimer.netlify.app ---+
 `
-
-  return summary
 }
 
 export default renderDay

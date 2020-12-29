@@ -1,5 +1,5 @@
 console.log("^")
-const a = Array.from({ length: 1000000 }, (_, i) => i + 1)
-const result = a.reduce((a, b) => a + b)
+// const a = Array.from({ length: 1000000 }, (_, i) => i + 1)
+// const result = a.reduce((a, b) => a + b)
 console.log("$")
-console.log("Result:", result)
+// console.log("Result:", result)

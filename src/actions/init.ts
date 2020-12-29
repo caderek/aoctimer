@@ -29,6 +29,7 @@ const init = async () => {
     version,
     year: (year ? year : yearData[0]) as string,
     language: (language || "unknown") as string,
+    days: [],
   })
 
   calibrate()

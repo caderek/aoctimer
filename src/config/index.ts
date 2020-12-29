@@ -1,6 +1,22 @@
 const fs = require("fs")
 const path = require("path")
-import { name, version } from "../../package.json"
+import { name } from "../../package.json"
+
+type Day = {
+  day: number
+  level: number
+  score: number
+  rel: number
+  time: number
+}
+
+type Data = {
+  version?: string
+  year?: string
+  benchmark?: number
+  language?: string
+  days?: Day[]
+}
 
 const fileName = `${name}.json`
 
@@ -17,7 +33,7 @@ const load = () => {
     : {}
 }
 
-const save = (data: { [key: string]: string | number }) => {
+const save = (data: Data) => {
   if (!fs.existsSync(configDir)) {
     fs.mkdirSync(configDir, { recursive: true })
   }
@@ -27,5 +43,5 @@ const save = (data: { [key: string]: string | number }) => {
   fs.writeFileSync(configFile, JSON.stringify({ ...content, ...data }, null, 2))
 }
 
-export { check, save, load }
+export { check, save, load, Day, Data }
 export default load()

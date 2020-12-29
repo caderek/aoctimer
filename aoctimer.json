@@ -2,5 +2,28 @@
   "version": "1.0.0",
   "year": "2020",
   "language": "JS",
-  "benchmark": 3469625801
+  "benchmark": 3459431074,
+  "days": [
+    {
+      "day": "13",
+      "level": 10,
+      "score": 1024,
+      "time": 1,
+      "rel": 0.029
+    },
+    {
+      "day": "18",
+      "level": 10,
+      "score": 1024,
+      "time": 1,
+      "rel": 0.029
+    },
+    {
+      "day": "02",
+      "level": 10,
+      "score": 1024,
+      "time": 1,
+      "rel": 0.029
+    }
+  ]
 }

@@ -1,4 +1,6 @@
-const getDayStats = (rawTime: bigint, config) => {
+import config from "../config"
+
+const getDayStats = (rawTime: bigint) => {
   const base = Math.ceil(config.benchmark / 1000000)
   const time = Math.ceil(Number(rawTime) / 1000000)
 
