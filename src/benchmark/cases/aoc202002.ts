@@ -1,4 +1,4 @@
-import raw from "./aoc-2020-02.input"
+import raw from "./aoc202002.input"
 
 const prepareInput = (raw: string) =>
   raw.split("\n").map((item) => {
