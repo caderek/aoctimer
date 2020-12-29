@@ -1,4 +1,3 @@
-import stats from "../stats"
 import config from "../config"
 import renderSystem from "./render-system"
 
