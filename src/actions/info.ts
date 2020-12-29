@@ -1,5 +1,7 @@
+import help from "./help"
+
 const info = () => {
-  console.log("Info")
+  help()
 }
 
 export default info
