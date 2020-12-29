@@ -36,13 +36,13 @@ Requires [Node 14LTS](https://nodejs.org/en/download/) or higher.
 #### Global installation:
 
 ```
-npm i gramma -g
+npm i aoctimer -g
 ```
 
 #### Local installation (as a dev tool for your project):
 
 ```
-npm i gramma -D
+npm i aoctimer -D
 ```
 
 ### Via binary package
