@@ -1,7 +1,16 @@
 {
   "name": "aoctimer",
   "version": "1.0.0",
-  "description": "",
+  "description": "AoC TIMER - compare your AoC solutions with others",
+  "repository": "https://github.com/caderek/aoctimer",
+  "homepage": "https://github.com/caderek/aoctimer",
+  "keywords": [
+    "aoc",
+    "advent of code",
+    "timer",
+    "benchmark"
+  ],
+  "author": "Maciej Cąderek | maciej.caderek@gmail.com",
   "main": "build/index.js",
   "bin": "build/index.js",
   "scripts": {
@@ -12,8 +21,6 @@
     "build:macos": "pkg -c package.json -t node14-macos-x64 --out-path bin/macos build/index.js",
     "build:linux64": "pkg -c package.json -t node14-linux-x64 --out-path bin/linux64 build/index.js"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^14.14.16",

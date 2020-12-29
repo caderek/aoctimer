@@ -7,7 +7,7 @@ so you can compare your code performance with others, independent of your machin
 
 The timer is not meant to be overly precise (has ~1ms precision). It is also not perfect replicating the same results on different machines, but the results are precise enough to make it a fun tool.
 
-It also provides a score and show you the level of your optimizations, making performance tweaks more gratifying.
+It also provides a score and shows you the level of your optimizations, making performance tweaks more gratifying.
 
 ## Example output
 
@@ -31,7 +31,7 @@ It also provides a score and show you the level of your optimizations, making pe
 
 It is the recommended way if you have Node.js and NPM already installed (or you are willing to do it).
 
-Requires Node 14LTS ot higher.
+Requires [Node 14LTS](https://nodejs.org/en/download/) or higher.
 
 #### Global installation:
 
@@ -55,7 +55,7 @@ If you prefer a single binary file (Node.js included), you can download it for t
 
 ## Preparing your code
 
-Aoc TIMER is language independent and relies on a simple protocol - in your code mark the start end the end of the measured code by writing to the stdout:
+AoC TIMER is language independent and relies on a simple protocol - in your code mark the start and the end of the measured code by writing to the stdout:
 
 - `^` - before executing your solution code
 - `$` - after executing your solution code
@@ -94,7 +94,7 @@ In your project folder run:
 aoctimer init
 ```
 
-It will create local config and execute benchmark.
+It will a create local config and execute the benchmark.
 
 Execute your code (if you skip the day flag, it will try to autocomplete the day scanning your command and working directory):
 
