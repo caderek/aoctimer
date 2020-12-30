@@ -86,6 +86,16 @@ console.log("Solution to part 1:", result1)
 console.log("Solution to part 2:", result2)
 ```
 
+Note: Some languages printing statements do not automatically flush the output - in that case you have to specify this, for example in Python3:
+
+```python
+print("^", flush=True)
+
+# measured code
+
+print("$", flush=True)
+```
+
 ## Usage
 
 In your project folder run:
