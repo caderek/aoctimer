@@ -11,9 +11,6 @@ const init = async () => {
   const commandPos = process.argv.indexOf("init")
   let [language, year] = process.argv.slice(commandPos + 1)
 
-  const commandPos = process.argv.indexOf("init")
-  let [language, year] = process.argv.slice(commandPos + 1)
-
   const yearData = process.cwd().match(/20\d{2}/)
 
   const rl = readline.createInterface({
