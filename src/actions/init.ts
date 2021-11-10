@@ -1,5 +1,4 @@
 import * as readline from "readline"
-import benchmark from "../benchmark"
 import { save } from "../config"
 import calibrate from "./calibrate"
 
@@ -7,7 +6,7 @@ const ask = (rl, question): Promise<string> =>
   new Promise((resolve) => rl.question(question, resolve))
 
 const init = async () => {
-  console.log("Initializing")
+  console.log("Initializing AoC timer...")
 
   const commandPos = process.argv.indexOf("init")
   let [language, year] = process.argv.slice(commandPos + 1)

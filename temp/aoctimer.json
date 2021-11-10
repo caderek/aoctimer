@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "year": "2020",
+  "language": "TypeScript",
+  "days": [
+    {
+      "day": "01",
+      "level": 10,
+      "score": 1024,
+      "time": 1,
+      "rel": 0.02
+    }
+  ],
+  "benchmark": 5087785380
+}
