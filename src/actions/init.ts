@@ -5,11 +5,8 @@ import calibrate from "./calibrate"
 const ask = (rl, question): Promise<string> =>
   new Promise((resolve) => rl.question(question, resolve))
 
-const init = async () => {
+const init = async ({ language, year }) => {
   console.log("Initializing AoC timer...")
-
-  const commandPos = process.argv.indexOf("init")
-  let [language, year] = process.argv.slice(commandPos + 1)
 
   const yearData = process.cwd().match(/20\d{2}/)
 

@@ -1,6 +1,6 @@
 const help = () => {
   console.log(`
-AoC TIMER v.1.0.0
+AoC TIMER v.2.0.0
 
 Commands:
   init [language] [year]        Calibrate and create local config
@@ -8,6 +8,7 @@ Commands:
   summary                       Display the summary
   [-d, --day <day>] <command>   Run the timer for your command
   --help, -h                    Show help page
+  --version, -v                 Show version
 
 Examples:
 

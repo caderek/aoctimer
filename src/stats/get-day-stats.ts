@@ -1,7 +1,7 @@
 import config from "../config"
 
 const getDayStats = (rawTime: bigint) => {
-  const base = Math.ceil(config.benchmark / 1000000)
+  const base = Number(config.benchmark / 1000000)
   const time = Number(rawTime) / 1000000
 
   const thresholds = [
@@ -21,7 +21,7 @@ const getDayStats = (rawTime: bigint) => {
   const delta = next ? Math.ceil(time - next[1]) : null
   const prev = thresholds.reverse().find(([_, v]) => time < v)
   const exponent = prev ? prev[0] : 0
-  const rel = Math.ceil((time / base) * 100000) / 1000
+  const rel = Math.round((time / base) * 100000) / 1000
 
   return { time, exponent, delta, rel }
 }

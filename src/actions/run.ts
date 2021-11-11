@@ -24,7 +24,32 @@ Total 12345
 My solution has total time of 123.100 us.
 `
 
-const run = (command: string, args: string[], day: string | null) => {
+const runStats = (time: bigint, day: string) => {
+  if (time !== null) {
+    const data = stats.day(time)
+
+    if (day !== "??") {
+      save({
+        days: [
+          ...config.days.filter((v) => v.day !== day),
+          {
+            day,
+            level: data.exponent,
+            score: 2 ** data.exponent,
+            time: data.time,
+            rel: data.rel,
+          },
+        ],
+      })
+    }
+
+    console.log(views.day(day, data))
+  } else {
+    console.log(NO_TIME_MESSAGE)
+  }
+}
+
+const run = ({ day, exec, time }) => {
   if (!check() || !config.benchmark) {
     console.log("Please run 'aoctimer init' first.")
     return
@@ -32,7 +57,14 @@ const run = (command: string, args: string[], day: string | null) => {
 
   day = day ?? getDay()
 
+  if (time !== null) {
+    runStats(time, day)
+    process.exit()
+  }
+
   let output = ""
+
+  const [command, ...args] = exec
 
   const ps = spawn(command, args, {
     stdio: ["pipe", "pipe", process.stderr],
@@ -44,29 +76,7 @@ const run = (command: string, args: string[], day: string | null) => {
 
   ps.once("close", () => {
     const time = extractTime(output)
-
-    if (time !== null) {
-      const data = stats.day(time)
-
-      if (day !== "??") {
-        save({
-          days: [
-            ...config.days.filter((v) => v.day !== day),
-            {
-              day,
-              level: data.exponent,
-              score: 2 ** data.exponent,
-              time: data.time,
-              rel: data.rel,
-            },
-          ],
-        })
-      }
-
-      console.log(views.day(day, data))
-    } else {
-      console.log(NO_TIME_MESSAGE)
-    }
+    runStats(time, day)
   })
 }
 

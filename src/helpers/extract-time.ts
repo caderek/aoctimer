@@ -1,8 +1,8 @@
-const extractTime = (data: string) => {
+const extractTime = (data: string, prefix: string = "") => {
   const totalTimeRegex = /total.+/gi
   const timeRegex = /\d+\.*\d*\s*[smnu]{0,1}s{0,1}/i
 
-  const entries = (data.match(totalTimeRegex) ?? [])
+  const entries = (`${prefix}${data}`.match(totalTimeRegex) ?? [])
     .filter((line) => timeRegex.test(line))
     .map((line) => line.match(timeRegex)[0])
 

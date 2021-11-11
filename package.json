@@ -16,11 +16,12 @@
   "scripts": {
     "start": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run transpile; npm run build:win64; yarn run build:macos; yarn run build:linux64",
+    "build": "rm -rf bin; npm run transpile; npm run build:win64; npm run build:macos; npm run build:linux64; npm run build:zip",
     "transpile": "tsc",
     "build:win64": "pkg -c package.json -t node16-win-x64 --out-path bin/windows64 build/index.js",
     "build:macos": "pkg -c package.json -t node16-macos-x64 --out-path bin/macos build/index.js",
-    "build:linux64": "pkg -c package.json -t node16-linux-x64 --out-path bin/linux64 build/index.js"
+    "build:linux64": "pkg -c package.json -t node16-linux-x64 --out-path bin/linux64 build/index.js",
+    "build:zip": "node scripts/zip-binaries.js"
   },
   "license": "ISC",
   "devDependencies": {

@@ -12,16 +12,16 @@ const renderDay = (day: string | null, data: any) => {
     points,
   )}`.padEnd(44, " ")
 
-  const statsView2 = `${relative.padEnd(21, " ")} Level: ${"★"
+  const statsView2 = `${relative.padEnd(20, " ")} Level: ${"★"
     .repeat(exponent)
-    .padEnd(10, "☆")}`.padEnd(40, " ")
+    .padEnd(10, "☆")}`.padEnd(39, " ")
 
   return `
     +--- AoC ${config.year} Day ${day} - AOC TIMER --------------------+
     |                                                    |
     ${renderSystem()}
     | Time: ${statsView1} |
-    | Relative: ${statsView2} |
+    | Benchmark: ${statsView2} |
     |                                                    |
     +----------------------------------- git.io/JL9Qu ---+
 `

@@ -11,15 +11,15 @@ const renderSummary = (year: string, days: Day[]) => {
         item.score,
       )}`.padEnd(44, " ")
 
-      const statsView2 = `${`${item.rel}%`.padEnd(21, " ")} Level: ${"★"
+      const statsView2 = `${`${item.rel}%`.padEnd(20, " ")} Level: ${"★"
         .repeat(item.level)
-        .padEnd(10, "☆")}`.padEnd(40, " ")
+        .padEnd(10, "☆")}`.padEnd(39, " ")
 
       return `
     | Day ${item.day}                                             |
     | ------                                             |
     | Time: ${statsView1} |
-    | Relative: ${statsView2} |
+    | Benchmark: ${statsView2} |
     |                                                    |`
     })
     .join("")
@@ -32,7 +32,7 @@ const renderSummary = (year: string, days: Day[]) => {
     .map((v) => v.time)
     .reduce((a, b) => a + b)}ms`
 
-  const relativeAvgView = `Relative (average): ${(
+  const relativeAvgView = `Benchmark (average): ${(
     days.map((v) => v.rel).reduce((a, b) => a + b) / days.length
   ).toFixed(3)}%`
 
