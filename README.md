@@ -142,10 +142,10 @@ aoctimer summary
 ```
 Commands:
   init [language] [year]        Calibrate and create local config
-  calibrate                     Recalibrate the timer
   summary                       Display the summary
   [-d, --day <day>] <command>   Run the timer for your command
   --help, -h                    Show help page
+  --version, -v                 Show version
 ```
 
 ## Example summaries for two machines running the same code
