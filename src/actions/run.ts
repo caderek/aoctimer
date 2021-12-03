@@ -1,4 +1,4 @@
-import { spawn } from "child_process"
+import { spawn, execSync } from "child_process"
 import config, { check, save } from "../config"
 import views from "../views"
 import stats from "../stats"
@@ -24,7 +24,7 @@ Total 12345
 My solution has total time of 123.100 us.
 `
 
-const runStats = (time: bigint, day: string) => {
+const runStats = (time: bigint, day: string, command: string | null) => {
   if (time !== null) {
     const data = stats.day(time)
 
@@ -43,41 +43,34 @@ const runStats = (time: bigint, day: string) => {
       })
     }
 
-    console.log(views.day(day, data))
+    return data
   } else {
     console.log(NO_TIME_MESSAGE)
   }
 }
 
-const run = ({ day, exec, time }) => {
+const run = ({ day, command, time }) => {
   if (!check() || !config.benchmark) {
     console.log("Please run 'aoctimer init' first.")
     return
   }
 
-  day = day ?? getDay()
+  day = day ?? getDay(command)
 
   if (time !== null) {
-    runStats(time, day)
+    runStats(time, day, null)
     process.exit()
   }
 
-  let output = ""
-
-  const [command, ...args] = exec
-
-  const ps = spawn(command, args, {
-    stdio: ["pipe", "pipe", process.stderr],
-  })
-
-  ps.stdout.on("data", (data) => {
-    output += data.toString()
-  })
-
-  ps.once("close", () => {
+  try {
+    const output = execSync(command).toString()
     const time = extractTime(output)
-    runStats(time, day)
-  })
+    console.log("Running")
+    const data = runStats(time, day, command)
+    console.log(views.day(day, data))
+  } catch (e) {
+    console.log(`Failed to execute the command: ${command}`)
+  }
 }
 
 export default run

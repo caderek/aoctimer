@@ -1,9 +1,21 @@
-const getDay = () => {
-  const dayData = `${process.cwd()} ${process.argv.slice(3).join(" ")}`
-    .replace(/20\d{2}/, "")
-    .match(/\d?\d/)
+const getDay = (command: string | null) => {
+  if (command === null) {
+    return "??"
+  }
 
-  return dayData ? dayData[0].padStart(2, "0") : "??"
+  const dayData = command.replace(/20\d{2}/, "").match(/\d?\d/g)
+
+  if (dayData === null) {
+    return "??"
+  }
+
+  const day = Number(dayData[dayData.length - 1])
+
+  if (day < 1 || day > 25) {
+    return "??"
+  }
+
+  return String(day).padStart(2, "0")
 }
 
 export default getDay

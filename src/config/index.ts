@@ -14,10 +14,11 @@ type Data = {
   year?: string
   benchmark?: number
   language?: string
+  system?: string
   days?: Day[]
 }
 
-const fileName = `aoctimer.json`
+const fileName = `.aoctimer.json`
 
 const configDir = process.cwd()
 const configFile = path.join(configDir, fileName)

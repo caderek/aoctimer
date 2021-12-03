@@ -1,24 +1,10 @@
-import * as os from "os"
 import config from "../config"
-
-const OS = {
-  aix: "AIX",
-  darwin: "MacOS",
-  freebsd: "FreeBSD",
-  linux: "Linux",
-  openbsd: "OpenBSD",
-  sunos: "SunOS",
-  win32: "Windows",
-}
-
-const cpu = os.cpus()[0].model
-const mem = Math.round(os.totalmem() / 10 ** 9)
+import getSystem from "../helpers/get-system"
 
 const renderSystem = () => {
-  const osView = `${OS[os.platform()]} (${os.arch()}) ${mem}GB RAM`.padEnd(
-    50,
-    " ",
-  )
+  const { platform, arch, cpu, mem } = getSystem()
+
+  const osView = `${platform} (${arch}) ${mem}GB RAM`.padEnd(50, " ")
 
   const cpuView = cpu.padEnd(50, " ")
 

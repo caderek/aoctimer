@@ -49,9 +49,9 @@ npm i aoctimer -D
 
 If you prefer a single binary file (Node.js included), you can download it for the most popular platforms:
 
-- [aoctimer-linux64-v2.0.0.zip](https://github.com/caderek/aoctimer/releases/download/v2.0.0/aoctimer-linux64-v2.0.0.zip)
-- [aoctimer-macos-v2.0.0.zip](https://github.com/caderek/aoctimer/releases/download/v2.0.0/aoctimer-macos-v2.0.0.zip)
-- [aoctimer-windows64-v2.0.0.zip](https://github.com/caderek/aoctimer/releases/download/v2.0.0/aoctimer-windows64-v2.0.0.zip)
+- [aoctimer-linux64-v3.0.0.zip](https://github.com/caderek/aoctimer/releases/download/v3.0.0/aoctimer-linux64-v3.0.0.zip)
+- [aoctimer-macos-v3.0.0.zip](https://github.com/caderek/aoctimer/releases/download/v3.0.0/aoctimer-macos-v3.0.0.zip)
+- [aoctimer-windows64-v3.0.0.zip](https://github.com/caderek/aoctimer/releases/download/v3.0.0/aoctimer-windows64-v3.0.0.zip)
 
 ## Preparing your code
 

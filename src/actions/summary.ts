@@ -6,6 +6,7 @@ const summary = () => {
     console.log("Please run 'aoctimer init' first.")
     return
   }
+
   console.log(views.summary(config.year, config.days))
 }
 

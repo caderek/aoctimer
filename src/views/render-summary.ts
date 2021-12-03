@@ -28,22 +28,27 @@ const renderSummary = (year: string, days: Day[]) => {
 
   const completedView = `Completed: ${days.length} / 25`
 
-  const totalTimeView = `Total time: ${days
-    .map((v) => v.time)
-    .reduce((a, b) => a + b)}ms`
+  const totalTime = days.map((v) => v.time).reduce((a, b) => a + b, 0)
 
-  const relativeAvgView = `Benchmark (average): ${(
-    days.map((v) => v.rel).reduce((a, b) => a + b) / days.length
-  ).toFixed(3)}%`
+  const relativeAvg =
+    days.length > 0
+      ? (days.map((v) => v.rel).reduce((a, b) => a + b) / days.length).toFixed(
+          3,
+        )
+      : 0
 
-  const totalScoreView = `Total score: ${days
-    .map((v) => v.score)
-    .reduce((a, b) => a + b)}`
+  const totalScore = days.map((v) => v.score).reduce((a, b) => a + b, 0)
 
-  const levelAvg = Math.round(
-    days.map((v) => v.level).reduce((a, b) => a + b) / days.length,
-  )
+  const levelAvg =
+    days.length > 0
+      ? Math.round(
+          days.map((v) => v.level).reduce((a, b) => a + b) / days.length,
+        )
+      : 0
 
+  const totalTimeView = `Total time: ${totalTime}ms`
+  const relativeAvgView = `Benchmark (average): ${relativeAvg}%`
+  const totalScoreView = `Total score: ${totalScore}`
   const levelAvgView = `Level (average): ${"★"
     .repeat(levelAvg)
     .padEnd(10, "☆")}`

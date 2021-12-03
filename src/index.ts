@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import help from "./actions/help"
 import init from "./actions/init"
-import calibrate from "./actions/calibrate"
 import info from "./actions/info"
 import summary from "./actions/summary"
 import run from "./actions/run"
@@ -18,12 +17,12 @@ switch (command) {
     help()
     break
   }
-  case "init": {
-    init(args as { language: string; year: string })
+  case "version": {
+    console.log("v3.0.0")
     break
   }
-  case "calibrate": {
-    calibrate()
+  case "init": {
+    init(args as { language: string; year: string })
     break
   }
   case "summary": {
@@ -31,7 +30,7 @@ switch (command) {
     break
   }
   case "run": {
-    run(args as { day: string | null; exec: string[]; time: string | null })
+    run(args as { day: string | null; command: string; time: string | null })
     break
   }
   default: {

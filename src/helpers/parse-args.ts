@@ -11,12 +11,12 @@ const parseArgs = (argv: string[]) => {
     return { command: "help", args: null }
   }
 
-  if (rawArgs[0] === "init") {
-    return { command: "init", args: { language: rawArgs[1], year: rawArgs[2] } }
+  if (rawArgs.includes("-v") || rawArgs.includes("--version")) {
+    return { command: "version", args: null }
   }
 
-  if (rawArgs[0] === "calibrate") {
-    return { command: "calibrate", args: null }
+  if (rawArgs[0] === "init") {
+    return { command: "init", args: { language: rawArgs[1], year: rawArgs[2] } }
   }
 
   if (rawArgs[0] === "summary") {
@@ -29,7 +29,7 @@ const parseArgs = (argv: string[]) => {
       command: "run",
       args: {
         day: rawArgs[1].padStart(2, "0"),
-        exec: time === null ? rawArgs.slice(2) : null,
+        command: time === null ? rawArgs.slice(2).join(" ") : null,
         time,
       },
     }
@@ -38,7 +38,11 @@ const parseArgs = (argv: string[]) => {
   const time = extractTime(rawArgs[0], "total")
   return {
     command: "run",
-    args: { day: null, exec: time === null ? rawArgs : null, time },
+    args: {
+      day: null,
+      command: time === null ? rawArgs.join(" ") : null,
+      time,
+    },
   }
 }
 
