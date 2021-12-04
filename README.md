@@ -163,10 +163,9 @@ Show the summary:
 aoctimer summary
 ```
 
-You can save the output of the commands to the file, using standard command-line piping:
+You can save the output of the commands to the file, using standard command-line piping (Bash / zsh / fish / PowerShell):
 
 ```sh
-# Save summary (Bash / zsh / fish / PowerShell):
 aoctimer summary > MY_FILE.txt
 ```
 
