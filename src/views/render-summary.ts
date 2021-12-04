@@ -1,19 +1,20 @@
 import config, { Day } from "../config"
+import toFixed from "../helpers/to-fixed"
 import renderSystem from "./render-system"
 
 const renderSummary = (year: string, days: Day[]) => {
   const daysView = days
     .sort((a, b) => (a.day > b.day ? 1 : b.day > a.day ? -1 : 0))
     .map((item) => {
-      const timeView = `${item.time}ms`
+      const timeView = `${toFixed(item.time)}ms`
 
       const statsView1 = `${timeView.padEnd(25, " ")} Points: ${String(
         item.score,
       )}`.padEnd(44, " ")
 
-      const statsView2 = `${`${item.rel}%`.padEnd(20, " ")} Level: ${"★"
+      const statsView2 = `${`${item.rel}%`.padEnd(20, " ")} Level: ${"*"
         .repeat(item.level)
-        .padEnd(10, "☆")}`.padEnd(39, " ")
+        .padEnd(10, "-")}`.padEnd(39, " ")
 
       return `
     | Day ${item.day}                                             |
@@ -46,12 +47,12 @@ const renderSummary = (year: string, days: Day[]) => {
         )
       : 0
 
-  const totalTimeView = `Total time: ${totalTime}ms`
+  const totalTimeView = `Total time: ${toFixed(totalTime)}ms`
   const relativeAvgView = `Benchmark (average): ${relativeAvg}%`
   const totalScoreView = `Total score: ${totalScore}`
-  const levelAvgView = `Level (average): ${"★"
+  const levelAvgView = `Level (average): ${"*"
     .repeat(levelAvg)
-    .padEnd(10, "☆")}`
+    .padEnd(10, "-")}`
 
   const summary = `
     | ${completedView.padEnd(50, " ")} |

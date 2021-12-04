@@ -1,6 +1,6 @@
 const help = () => {
   console.log(`
-AoC TIMER v.3.0.3
+AoC TIMER v.3.0.4
 
 Commands:
   init [language] [year]        Calibrate and create local config

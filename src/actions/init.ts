@@ -30,7 +30,7 @@ const init = async ({ language, year }) => {
   const bench = benchmark()
 
   save({
-    version: "3.0.3",
+    version: "3.0.4",
     year: (year ? year : yearData[0]) as string,
     language: (language || "unknown") as string,
     system: getSystem().toString(),
