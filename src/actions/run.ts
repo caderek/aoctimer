@@ -1,4 +1,4 @@
-import { spawn, execSync } from "child_process"
+import { spawnSync, execSync } from "child_process"
 import config, { check, save } from "../config"
 import views from "../views"
 import stats from "../stats"
@@ -24,7 +24,7 @@ Total 12345
 My solution has total time of 123.100 us.
 `
 
-const runStats = (time: bigint, day: string, command: string | null) => {
+const runStats = (time: bigint, day: string) => {
   if (time !== null) {
     const data = stats.day(time)
 
@@ -58,15 +58,14 @@ const run = ({ day, command, time }) => {
   day = day ?? getDay(command)
 
   if (time !== null) {
-    runStats(time, day, null)
+    runStats(time, day)
     process.exit()
   }
 
   try {
     const output = execSync(command).toString()
     const time = extractTime(output)
-    console.log("Running")
-    const data = runStats(time, day, command)
+    const data = runStats(time, day)
     console.log(views.day(day, data))
   } catch (e) {
     console.log(`Failed to execute the command: ${command}`)

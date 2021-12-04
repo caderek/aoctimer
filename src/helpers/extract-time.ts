@@ -1,6 +1,11 @@
+const isTime = (str: string) => {
+  const timeRegex = /^\d+\.{0,1}\d*[smnu]{0,1}s{0,1}$/i
+  return timeRegex.test(str)
+}
+
 const extractTime = (data: string, prefix: string = "") => {
   const totalTimeRegex = /total.+/gi
-  const timeRegex = /\d+\.*\d*\s*[smnu]{0,1}s{0,1}/i
+  const timeRegex = /\d+\.{0,1}\d*\s*[smnu]{0,1}s{0,1}/i
 
   const entries = (`${prefix}${data}`.match(totalTimeRegex) ?? [])
     .filter((line) => timeRegex.test(line))
@@ -36,4 +41,5 @@ const extractTime = (data: string, prefix: string = "") => {
   return null
 }
 
+export { isTime }
 export default extractTime

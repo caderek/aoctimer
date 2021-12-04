@@ -57,19 +57,27 @@ If you prefer a single binary file (Node.js included), you can download it for t
 
 AoC TIMER is language independent and relies on a simple protocol - in your code write to the stdout line that contains following info (in order):
 
-- word "total"
-- time as number
-- unit as one of: s, ms, us, ns (optional, ms as default)
+- the word "total"
+- the time as number
+- the unit as one of (optional, `ms` as default):
+  - `s` (seconds)
+  - `ms` (milliseconds)
+  - `us` (microseconds)
+  - `ns` (nanoseconds)
 
-Additional characters and spaces are allowed, script is not case-sensitive.
+Additional characters and spaces are allowed, the program is not case-sensitive.
 
 Examples:
 
 ```
 total 12.01ms
+
 Total: 100 ns
+
 TOTAL TIME - 5s
+
 Total 12345
+
 My solution has total time of 123.100 us.
 ```
 
@@ -83,7 +91,7 @@ const part1 = (input) => {
   return result
 }
 
-const part2 = (input: string) => {
+const part2 = (input) => {
   // solution...
   return result
 }
@@ -111,9 +119,9 @@ In your project folder run:
 aoctimer init
 ```
 
-It will a create local config and execute the benchmark.
+It will create the local config and execute the benchmark.
 
-Execute your code (if you skip the day flag, it will try to autocomplete the day scanning your command and working directory):
+Execute your code (if you skip the day flag, it will try to autocomplete the day by scanning your command):
 
 ```sh
 aoctimer --day <day_number> <your_command>
@@ -127,6 +135,7 @@ aoctimer <your_command>
   aoctimer node day01/index.js
   aoctimer python day5.py
   aoctimer day25.exe
+  aoctimer go run aoc/day01/solution.go
   aoctimer -d 13 java my_solution
   aoctimer --day 15 lua solution.lua
 ```
@@ -135,6 +144,13 @@ Show the summary:
 
 ```sh
 aoctimer summary
+```
+
+You can save the output of the commands to the file, using standard command-line piping:
+
+```sh
+# Save summary (Bash / zsh / fish):
+aoctimer summary > MY_FILE.txt
 ```
 
 ## CLI

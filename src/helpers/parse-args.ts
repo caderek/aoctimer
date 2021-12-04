@@ -1,4 +1,4 @@
-import extractTime from "./extract-time"
+import extractTime, { isTime } from "./extract-time"
 
 const parseArgs = (argv: string[]) => {
   const rawArgs = argv.slice(2).map((arg) => arg.trim())
@@ -24,18 +24,25 @@ const parseArgs = (argv: string[]) => {
   }
 
   if (["-d", "--day"].includes(rawArgs[0])) {
-    const time = extractTime(rawArgs[2], "total")
+    const day = Number(rawArgs[1])
+
+    if (day < 1 || day > 25) {
+      console.log("Wrong day number, choose the day between 1 and 25.")
+      process.exit(1)
+    }
+
+    const time = isTime(rawArgs[2]) ? extractTime(rawArgs[2], "total") : null
     return {
       command: "run",
       args: {
-        day: rawArgs[1].padStart(2, "0"),
+        day: String(day).padStart(2, "0"),
         command: time === null ? rawArgs.slice(2).join(" ") : null,
         time,
       },
     }
   }
 
-  const time = extractTime(rawArgs[0], "total")
+  const time = isTime(rawArgs[0]) ? extractTime(rawArgs[2], "total") : null
   return {
     command: "run",
     args: {
