@@ -143,10 +143,15 @@ aoctimer <your_command>
 # Examples:
 
   aoctimer node day01/index.js
+
   aoctimer python day5.py
+
   aoctimer day25.exe
+
   aoctimer go run aoc/day01/solution.go
+
   aoctimer -d 13 java my_solution
+
   aoctimer --day 15 lua solution.lua
 ```
 
