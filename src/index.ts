@@ -18,7 +18,7 @@ switch (command) {
     break
   }
   case "version": {
-    console.log("v3.0.4")
+    console.log("v3.1.2")
     break
   }
   case "init": {
