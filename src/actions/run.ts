@@ -58,7 +58,8 @@ const run = ({ day, command, time }) => {
   day = day ?? getDay(command)
 
   if (time !== null) {
-    runStats(time, day)
+    const data = runStats(time, day)
+    console.log(views.day(day, data))
     process.exit()
   }
 
